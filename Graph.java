@@ -27,6 +27,18 @@ public class Graph {
 		return null;
 	}
 	
+	public Vertex[] getIntersects(String id1, String id2) {
+		Vertex[] verts = new Vertex[2];
+		int vertsIndex = 0;
+		for(int i = 0; i < intersectList.size(); i++) {
+			if (intersectList.get(i).id.equals(id1) || intersectList.get(i).id.equals(id2)) {
+				verts[vertsIndex++] = intersectList.get(i);
+				if (vertsIndex == 2) return verts;
+			}
+		}
+		return null;
+	}
+	
 	public Edge getRoad(int i) {
 		return roadList.get(i);
 	}
