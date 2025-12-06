@@ -34,9 +34,7 @@ public class StreetMap {
 					for (int j = 0; j < pathList.size(); j++) {
 						if (j != 0) {
 							System.out.print(", ");
-							Graph.Vertex[] pathVerts = new Graph.Vertex[2];
-							pathVerts[0] = graph.getIntersect(pathList.get(j-1).id);
-							pathVerts[1] = graph.getIntersect(pathList.get(j).id);
+							Graph.Vertex[] pathVerts = graph.getIntersects(pathList.get(j-1).id, pathList.get(j).id);
 							pathGraph.addRoad(graph.getRoad(pathVerts).id, pathVerts);
 						}
 						System.out.print(pathList.get(j).id);
@@ -254,3 +252,4 @@ public class StreetMap {
 		}
 	}
 }
+
